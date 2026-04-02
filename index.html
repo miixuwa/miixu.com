@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Miixu Web</title>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+      overflow-x: hidden;
+      font-family: 'Outfit', sans-serif;
+    }
+
+
+    body {
+      background: linear-gradient(135deg, #6e8efb, #a777e3, #e8a0bf);
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px;
+    }
+
+    :root {
+      --card-bg: rgba(255,255,255,0.18);
+      --card-border: rgba(255,255,255,0.35);
+      --card-shadow: 0 8px 48px rgba(0,0,0,0.18);
+      --text-main: #1a1a2e;
+      --text-muted: #3d3d5c;
+      --pill-bg: rgba(0,0,0,0.09);
+      --pill-border: rgba(0,0,0,0.12);
+      --pill-text: #2a2a40;
+      --btn-bg: rgba(0,0,0,0.08);
+      --btn-border: rgba(0,0,0,0.14);
+      --btn-text: #1f1f35;
+      --btn-hover-bg: rgba(0,0,0,0.15);
+      --link-color: #3a3a6a;
+      --footer-color: rgba(0,0,0,0.45);
+      --footer-hover: rgba(0,0,0,0.7);
+      --separator: rgba(0,0,0,0.25);
+    }
+
+    .page-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      box-shadow: var(--card-shadow);
+      padding: 36px;
+      width: 100%;
+      max-width: 620px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .title {
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+
+    .title-name {
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-image: linear-gradient(90deg, #a777e3, #6e8efb);
+    }
+
+    .subtitle {
+      font-size: clamp(0.88rem, 2.5vw, 0.97rem);
+      font-weight: 400;
+      color: var(--text-main);
+      line-height: 1.65;
+    }
+
+    .pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .pill {
+      background: var(--pill-bg);
+      border: 1px solid var(--pill-border);
+      color: var(--pill-text);
+      border-radius: 999px;
+      height: 32px;
+      padding: 0 14px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      pointer-events: none;
+      cursor: default;
+      white-space: nowrap;
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    #time-pill {
+      width: 118px;
+      justify-content: center;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.03em;
+    }
+
+    .owo-img {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .section-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+    }
+
+    .socials-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--btn-bg);
+      border: 1px solid var(--btn-border);
+      color: var(--btn-text);
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.18s ease, box-shadow 0.18s ease;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .social-btn svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      fill: currentColor;
+    }
+
+    .social-btn:hover {
+      background: var(--btn-hover-bg);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+    }
+
+    .social-btn:focus-visible {
+      outline: 2px solid var(--btn-text);
+      outline-offset: 3px;
+    }
+
+    .secondary-site {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .secondary-site a {
+      color: var(--link-color);
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.18s;
+    }
+
+    .secondary-site a:hover {
+      opacity: 0.7;
+      text-decoration: underline;
+    }
+
+    footer {
+      font-size: 0.78rem;
+      color: var(--footer-color);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    footer a {
+      color: var(--footer-color);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+
+    footer a:hover {
+      color: var(--footer-hover);
+    }
+
+    .footer-sep {
+      opacity: 0.5;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 24px 20px;
+        gap: 18px;
+      }
+      .socials-row {
+        gap: 8px;
+      }
+      .social-btn {
+        padding: 7px 14px;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page-wrapper">
+
+    <div class="card">
+
+      <h1 class="title">
+        Heya, I am <span class="title-name">Miixu</span> :3
+      </h1>
+
+      <p class="subtitle">
+       I'm a young, self-taught <b>Developer, Designer</b> and <b>Artist</b> (and on top of that also a <b>Furry</b>) located in Central Europe, <b>Austria</b> to be specific.<br><br>I am passionate about creating games using <b>Luau</b> and currently exploring <b>web development</b> as well. I have also been very interested in <b>outer space</b> since I was a little kid.<br><br>I really like <b>drawing</b> and <b>designing</b>, and I am currently also trying out <b>animation</b>. I mostly focus on drawing <b>anthro/furry</b> characters, especially my <b>own Fursona</b>. <i>Alright, enough yapping from my side now..</i>
+      </p>
+
+      <div class="pills-row">
+        <span class="pill">📍 Austria</span>
+        <span class="pill" id="time-pill">🕐 --:--:--</span>
+        <span class="pill" style="min-width:82px;justify-content:center;">💖 He/Him - Male</span>
+        <span class="pill">🐾 Furry</span>
+      </div>
+
+      <img
+        class="owo-img"
+        src="/assets/placeholder.png"
+        width="2420"
+        height="1668"
+        loading="lazy"
+      />
+
+      <div>
+        <p class="section-label">Find me on other socials:</p>
+        <div class="socials-row">
+
+          <a class="social-btn" href="https://x.com/miixua" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </a>
+
+          <a class="social-btn" href="https://bsky.app/profile/miixu.xyz" target="_blank" rel="noopener">
+            <svg viewBox="0 0 600 530" aria-hidden="true"><path d="M135.72 44.03C202.216 93.951 273.74 195.17 300 249.49c26.262-54.316 97.782-155.54 164.28-205.46C512.26 8.009 590-19.862 590 68.825c0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.38-3.69-10.832-3.708-7.896-.017-2.936-1.193.516-3.707 7.896-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.45-163.25-81.433C20.15 217.613 10 86.535 10 68.825c0-88.687 77.742-60.816 125.72-24.795z"/></svg>
+            Bluesky
+          </a>
+
+          <a class="social-btn" href="https://github.com/miixuwa" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+            GitHub
+          </a>
+
+          <a class="social-btn" href="https://www.roblox.com/users/9151460858/profile" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.926 23.998 0 18.892 5.075.002 24 5.108ZM15.348 10.09l-5.282-1.453-1.414 5.273 5.282 1.453z"/></svg>
+            Roblox
+          </a>
+
+        </div>
+      </div>
+
+      <p class="secondary-site">
+        Visit my secondary site:
+        <a href="https://miixu.xyz" target="_blank" rel="noopener">miixu.xyz</a>
+      </p>
+
+    </div>
+
+    <footer>
+      <a href="https://miixu.com/privacy" target="_blank" rel="noopener">Privacy</a>
+      <span class="footer-sep">•</span>
+      <a href="https://github.com/miixuwa/miixu.com" target="_blank" rel="noopener">Source</a>
+    </footer>
+
+  </div>
+
+
+  <script>
+    function randomHSL() {
+      const h = Math.floor(Math.random() * 360);
+      const s = Math.floor(55 + Math.random() * 30);
+      const l = Math.floor(40 + Math.random() * 30);
+      return { h, s, l, str: `hsl(${h},${s}%,${l}%)` };
+    }
+
+    function hslToRgb(h, s, l) {
+      s /= 100; l /= 100;
+      const k = n => (n + h / 30) % 12;
+      const a = s * Math.min(l, 1 - l);
+      const f = n => l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+      return { r: Math.round(f(0) * 255), g: Math.round(f(8) * 255), b: Math.round(f(4) * 255) };
+    }
+
+    function brightness({ r, g, b }) {
+      return 0.299 * r + 0.587 * g + 0.114 * b;
+    }
+
+    function nameGradient(colors) {
+      const base = colors[0];
+      const shift = colors[1];
+      const s1 = Math.min(100, base.s + 10);
+      const l1 = Math.max(30, base.l - 10);
+      const s2 = Math.min(100, shift.s + 8);
+      const l2 = Math.max(35, shift.l - 5);
+      return `linear-gradient(90deg, hsl(${base.h},${s1}%,${l1}%), hsl(${shift.h},${s2}%,${l2}%))`;
+    }
+
+    (function applyTheme() {
+      const c1 = randomHSL();
+      const c2 = randomHSL();
+      const c3 = randomHSL();
+
+      document.body.style.background =
+        `linear-gradient(135deg, ${c1.str}, ${c2.str}, ${c3.str})`;
+      document.body.style.backgroundAttachment = 'fixed';
+
+      const rgb1 = hslToRgb(c1.h, c1.s, c1.l);
+      const rgb2 = hslToRgb(c2.h, c2.s, c2.l);
+      const rgb3 = hslToRgb(c3.h, c3.s, c3.l);
+      const avgBrightness = (brightness(rgb1) + brightness(rgb2) + brightness(rgb3)) / 3;
+
+      const root = document.documentElement;
+      if (avgBrightness > 128) {
+        root.style.setProperty('--card-bg',        'rgba(10,10,30,0.35)');
+        root.style.setProperty('--card-border',    'rgba(255,255,255,0.15)');
+        root.style.setProperty('--card-shadow',    '0 8px 48px rgba(0,0,0,0.3)');
+        root.style.setProperty('--text-main',      '#f0f0ff');
+        root.style.setProperty('--text-muted',     '#b8b8d8');
+        root.style.setProperty('--pill-bg',        'rgba(255,255,255,0.12)');
+        root.style.setProperty('--pill-border',    'rgba(255,255,255,0.2)');
+        root.style.setProperty('--pill-text',      '#e8e8ff');
+        root.style.setProperty('--btn-bg',         'rgba(255,255,255,0.10)');
+        root.style.setProperty('--btn-border',     'rgba(255,255,255,0.18)');
+        root.style.setProperty('--btn-text',       '#e8e8ff');
+        root.style.setProperty('--btn-hover-bg',   'rgba(255,255,255,0.20)');
+        root.style.setProperty('--link-color',     '#c8c8ff');
+        root.style.setProperty('--footer-color',   'rgba(0,0,0,0.5)');
+        root.style.setProperty('--footer-hover',   'rgba(0,0,0,0.75)');
+      } else {
+        root.style.setProperty('--card-bg',        'rgba(255,255,255,0.18)');
+        root.style.setProperty('--card-border',    'rgba(255,255,255,0.35)');
+        root.style.setProperty('--card-shadow',    '0 8px 48px rgba(0,0,0,0.25)');
+        root.style.setProperty('--text-main',      '#1a1a2e');
+        root.style.setProperty('--text-muted',     '#3d3d5c');
+        root.style.setProperty('--pill-bg',        'rgba(0,0,0,0.09)');
+        root.style.setProperty('--pill-border',    'rgba(0,0,0,0.12)');
+        root.style.setProperty('--pill-text',      '#2a2a40');
+        root.style.setProperty('--btn-bg',         'rgba(0,0,0,0.08)');
+        root.style.setProperty('--btn-border',     'rgba(0,0,0,0.14)');
+        root.style.setProperty('--btn-text',       '#1f1f35');
+        root.style.setProperty('--btn-hover-bg',   'rgba(0,0,0,0.15)');
+        root.style.setProperty('--link-color',     '#3a3a6a');
+        root.style.setProperty('--footer-color',   'rgba(255,255,255,0.55)');
+        root.style.setProperty('--footer-hover',   'rgba(255,255,255,0.85)');
+      }
+
+      const nameSpan = document.querySelector('.title-name');
+      if (nameSpan) {
+        nameSpan.style.backgroundImage = nameGradient([c1, c2, c3]);
+      }
+    })();
+
+    function updateClock() {
+      const timePill = document.getElementById('time-pill');
+      if (!timePill) return;
+
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('de-AT', {
+        timeZone: 'Europe/Vienna',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      });
+      timePill.textContent = `🕐 ${timeStr}`;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+
+</body>
+</html>
