@@ -239,6 +239,18 @@
         font-size: 0.8rem;
       }
     }
+/* Removed background gradient gen. for mobile site since it looked horrible on there owo */
+@media (max-width: 768px) {
+  body {
+    background: #111111 !important;
+  }
+
+  .card {
+    background: var(--gradient-mobile) !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
   </style>
 </head>
 
@@ -265,7 +277,7 @@
 
       <img
         class="owo-img"
-        src="assets/placeholder.png"
+        src="/assets/placeholder.png"
         width="2420"
         height="1668"
         loading="lazy"
