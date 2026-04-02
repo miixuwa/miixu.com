@@ -1,6 +1,8 @@
 # Miixu [dot] com - Version 1.1
 Version **1.1** of my [personal "Link-In-Bio" website](https://miixu.com) released on **April 2nd, 2026**.
+
 Version 1.1 features some visual changes for both Desktop site and Mobile site, but heavily tragetted towards the Mobile experience. This Version mainly expands the visual experience on Mobile.
+
 This site contains some information about me, acting as a kind of introduction page.
 I have had a lot of fun creating this website and making it unique while learning how to design using **HTML**, since this was my *first ever real webdevelopment project* that I have worked on.
 
