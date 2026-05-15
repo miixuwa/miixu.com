@@ -1,5 +1,5 @@
-# Miixu [dot] com - Version 1.1
-Version **1.2** of my [personal "Link-In-Bio" website](https://miixu.com) released on **April 4th, 2026**.
+# Miixu [dot] com - Version 1.2.1
+Version **1.2.1** of my [personal "Link-In-Bio" website](https://miixu.com) released on **May 15th, 2026**.
 
 This site contains some information about me, acting as a kind of introduction page.
 I have had a lot of fun creating this website and making it unique while learning how to design using **HTML**, since this was my *first ever real webdevelopment project* that I have worked on.
@@ -9,10 +9,15 @@ I have had a lot of fun creating this website and making it unique while learnin
 ![Version 1.2 Showcase Image](https://github.com/miixuwa/miixu.com/blob/main/assets/assets/README/1.2%20Showcase.png?raw=true)
 
 ## What's new in 1.2
+
+### 1.2
 1.2 contains a new placeholder: a GIF image!
 This GIF image will be important in future Site overhauls, which will include an important GIF feature.
 A new social button for GIPHY has also been added (no correlation at all 👀), so yeah..
-I love this give so much so I'll just use it for the most random stuff possible from now on. 
+I love this give so much so I'll just use it for the most random stuff possible from now on.
+
+### 1.2.1
+Small text changes were made to the site.
 
 ![SillycatPlaceholder](https://github.com/miixuwa/miixu.com/blob/main/assets/placeholder.gif?raw=true)
 
@@ -22,7 +27,7 @@ I will *occasionally* make adjustments to the website to add new things such as 
 If something about the tools used in my website changes at some point, **the privacy site will also be adjusted** accordingly to the tools that will be used. 
 
 ## Thanks!
-If you actually read through this, thanks! OwO
+If you actually read through this, thanks!
 
 I believe that me writing this is basically the same as talking to a wall, but who knows, maybe someone will actually read through this, it doesn't hurt to at least hope for it.
 
